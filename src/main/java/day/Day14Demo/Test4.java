@@ -18,7 +18,5 @@ public class Test4 {
         thread2.start();
         thread3.start();
 
-        
-
     }
 }
