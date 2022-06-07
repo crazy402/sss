@@ -24,5 +24,7 @@ public class Test1 {
             System.out.println(iterator.next());
             System.out.println(iterator.next());
         }
+
+        list.listIterator();
     }
 }
