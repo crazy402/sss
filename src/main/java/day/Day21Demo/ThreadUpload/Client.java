@@ -16,10 +16,10 @@ import java.net.Socket;
 public class Client {
     public static void main(String[] args) throws IOException {
         // 连接服务器端口
-        Socket socket = new Socket("127.0.0.1", 8888);
+        Socket socket = new Socket("192.168.19.52", 8888);
 
         // 准备读取上传的文件
-        FileInputStream fis = new FileInputStream("D:\\Test\\test.jpg");
+        FileInputStream fis = new FileInputStream("D:\\Test1\\test.docx");
 
         // 将文件上传
         OutputStream sos = socket.getOutputStream();
@@ -44,7 +44,6 @@ public class Client {
         sis.close();
 
         socket.close();
-
 
     }
 }

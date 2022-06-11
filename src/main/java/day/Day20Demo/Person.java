@@ -25,4 +25,6 @@ public class Person implements Serializable {
     private Integer age;
 
 
+    public Person(String s, int i) {
+    }
 }

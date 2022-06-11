@@ -21,7 +21,6 @@ public class Server {
             Socket socket = serverSocket.accept();
             MyRunable myRunable = new MyRunable(socket);
             new Thread(myRunable).start();
-
         }
 
 

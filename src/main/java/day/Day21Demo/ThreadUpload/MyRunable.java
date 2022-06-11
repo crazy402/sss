@@ -1,5 +1,7 @@
 package day.Day21Demo.ThreadUpload;
 
+import org.apache.commons.io.IOUtils;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.Random;
@@ -21,6 +23,7 @@ public class MyRunable implements Runnable{
     @Override
     public void run() {
         FileOutputStream fos = null;
+
         try {
             // 创建字节输出流  接收数据
             InputStream sis = socket.getInputStream();
@@ -34,15 +37,22 @@ public class MyRunable implements Runnable{
 
 
             // 文件名
+
             String fileName = "Test"+System.currentTimeMillis()+ new Random().nextInt(100000)+".jpg";
+
+
 
             // 用输出流接受客户端发出的数据
             fos = new FileOutputStream(new File(fileDir, fileName));
             int i = 0;
             byte[] bytes = new byte[1024];
+
             while ((i = sis.read(bytes)) != -1) {
+
                 fos.write(bytes, 0, i);
             }
+
+
 
             // 向客户端返回数据
             OutputStream sos = socket.getOutputStream();
@@ -51,11 +61,9 @@ public class MyRunable implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
-            try {
-                fos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+            IOUtils.closeQuietly(fos);
+            IOUtils.closeQuietly(socket);
         }
 
     }
