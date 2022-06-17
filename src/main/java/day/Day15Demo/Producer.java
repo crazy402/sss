@@ -13,6 +13,7 @@ public class Producer implements Runnable {
     public Producer(BaoZiPu baoZiPu) {
         this.baoZiPu = baoZiPu;
     }
+
     @Override
     public void run() {
         while (true) {
@@ -24,7 +25,7 @@ public class Producer implements Runnable {
                     e.printStackTrace();
                 }
 
-                if (baoZiPu.getFlag() == true) {
+                if (baoZiPu.getFlag()) {
                     try {
                         baoZiPu.wait();
                     } catch (InterruptedException e) {

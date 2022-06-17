@@ -20,7 +20,7 @@ public class Consumer implements Runnable {
 
         while (true) {
             synchronized (baoZiPu) {
-                if (baoZiPu.getFlag() == false) {
+                if (!baoZiPu.getFlag()) {
                     try {
                         baoZiPu.wait();
                     } catch (InterruptedException e) {

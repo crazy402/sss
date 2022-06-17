@@ -1,3 +1,8 @@
+import homework.day9.Test5.A;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @ClassName demo
  * @Description //TODO
@@ -26,5 +31,8 @@ public class demo {
         short s2 = 8;
         short s3 = (short) (s1 + s2);
         System.out.println( s3);
+        
+
+
     }
 }
