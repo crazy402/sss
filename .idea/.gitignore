@@ -1,10 +1,19 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-/target/
-.idea
+#忽略文件
+.DS_Store
+/simplewind/    #表示过滤整个文件夹
+/update/
+/data/     #表示过滤整个文件夹data
+/public/upload/  #忽略目录 upload 下的全部内容
+/public/logs/
+*.log:          #表示忽略所有 .log 文件
+/.idea/          #表示忽略 .idea/目录下的所有文件，过滤整个.idea文件夹；
+think
+webpack.mix.js
+_config.yml
+.htaccess
+*.txt       #表示过滤所有.txt文件
+*.md
+*.lock
+*.json
+#配置文件
+/app/config.php
