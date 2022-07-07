@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bookstore/bookstore.iml" filepath="$PROJECT_DIR$/bookstore/bookstore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bookstore2/bookstore2.iml" filepath="$PROJECT_DIR$/bookstore2/bookstore2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bookstore3/bookstore3.iml" filepath="$PROJECT_DIR$/bookstore3/bookstore3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bookstore4/bookstore4.iml" filepath="$PROJECT_DIR$/bookstore4/bookstore4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bookstore5/bookstore5.iml" filepath="$PROJECT_DIR$/bookstore5/bookstore5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bookstore6/bookstore6.iml" filepath="$PROJECT_DIR$/bookstore6/bookstore6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaweb/javaweb.iml" filepath="$PROJECT_DIR$/javaweb/javaweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaweb02/javaweb02.iml" filepath="$PROJECT_DIR$/javaweb02/javaweb02.iml" />
+    </modules>
+  </component>
+</project>
