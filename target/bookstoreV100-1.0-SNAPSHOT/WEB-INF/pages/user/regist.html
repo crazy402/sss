@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <base href="/bookstore/">
+    <title>尚硅谷会员注册页面</title>
+    <link type="text/css" rel="stylesheet" href="static/css/style.css"/>
+    <link rel="stylesheet" href="static/css/register.css"/>
+    <style type="text/css">
+        .login_form {
+            height: 420px;
+            margin-top: 25px;
+        }
+
+        .message {
+            font-size: 12px;
+            color: red;
+            margin: 2px 0;
+        }
+    </style>
+</head>
+<body>
+<div id="login_header">
+    <a href="index.html">
+        <img class="logo_img" alt="" src="static/img/logo.gif"/>
+    </a>
+</div>
+
+<div class="login_banner">
+    <div class="register_form" id="app">
+        <h1>注册尚硅谷会员</h1>
+        <form action="/bookstore/register" method="post">
+            <div class="form-item">
+                <div>
+                    <label>用户名称:</label>
+                    <input v-model="user.username" name="username" type="text" placeholder="请输入用户名" @blur="checkUsername()"/>
+                </div>
+
+            </div>
+            <span style="color: red">{{usernameError}}</span>
+            <div class="form-item">
+                <div>
+                    <label>用户密码:</label>
+                    <input v-model="user.password" name="password" type="password" placeholder="请输入密码" @blur="checkPassword()"/>
+                </div>
+                <!--<span class=" message" v-text="passwordError"></span>-->
+            </div>
+            <span style="color: red">{{passwordError}}</span>
+            <div class="form-item">
+                <div>
+                    <label>确认密码:</label>
+                    <input v-model="user.passwordConfirm" type="password" placeholder="请输入确认密码"
+                           @blur="checkPasswordConfirm()"/>
+                </div>
+                <!--<span class="message" v-text="passwordConfirmError"></span>-->
+            </div>
+            <span style="color: red">{{passwordConfirmError}}</span>
+            <div class="form-item">
+                <div>
+                    <label>用户邮箱:</label>
+                    <input v-model="user.email" name="email" type="text" placeholder="请输入邮箱" @blur="checkEmail()"/>
+                </div>
+                <!--<span class="message" v-text="emailError"></span>-->
+            </div>
+            <span style="color: red">{{emailError}}</span>
+            <div class="form-item">
+                <div>
+                    <label>验证码:</label>
+                    <div class="verify">
+                        <input type="text" placeholder=""/>
+                        <img src="static/img/code.bmp" alt=""/>
+                    </div>
+                </div>
+                <span class="message"></span>
+            </div>
+
+            <button class="btn" @click="registerSuccess()">注册</button>
+        </form>
+    </div>
+</div>
+<div id="bottom">
+      <span>
+        尚硅谷书城.Copyright &copy;2015
+      </span>
+</div>
+
+<script type="text/javascript" src="static/script/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: "#app",
+        data: {
+            user: {
+                username: "",
+                password: "",
+                passwordConfirm: "",
+                email: ""
+            },
+            usernameError: " ",
+            passwordError: " ",
+            passwordConfirmError: " ",
+            emailError: " ",
+
+
+        },
+        methods: {
+            checkUsername() {
+                if (this.user.username.trim() == "") {
+                    this.usernameError = "请输入用户名";
+                    return false;
+                }
+                // 定义正则表达式
+                let regExp = /^[0-9a-zA-Z]{6,10}$/;
+
+                if (!regExp.test(this.user.username)) {
+                    this.usernameError = "用户名6-10位 且由数字和字母组成";
+                    return false;
+                } else {
+                    this.usernameError = "";
+                    return true;
+                }
+            },
+            checkPassword() {
+                if (this.user.password.trim() == "") {
+                    this.passwordError = "请输入密码";
+                    return false;
+                }
+                // 定义正则表达式
+                let regExp = /^[0-9a-zA-Z]{4,16}$/;
+                if (!regExp.test(this.user.password)) {
+                    this.passwordError = "密码8-16位 且由数字和字母组成";
+                    return false;
+                } else {
+                    this.passwordError = "";
+                    return true;
+                }
+            },
+            checkPasswordConfirm() {
+                if (this.user.passwordConfirm.trim() == "") {
+                    this.passwordConfirmError = "请输入密码";
+                    return false;
+                }
+                if (this.user.passwordConfirm != this.user.password) {
+                    this.passwordConfirmError = "密码不正确 重新输入";
+                    return false;
+                } else {
+                    this.passwordConfirmError = "";
+                    return true;
+                }
+            },
+            checkEmail() {
+                if (this.user.email === "") {
+                    this.emailError = "请填写邮箱";
+                    return false;
+                }
+                let regExp = /^[0-9a-zA-Z]+@[0-9a-z]+(\.[a-zA-Z]+)+$/
+                if (!regExp.test(this.user.email)) {
+                    this.emailError = "邮箱格式不正确";
+                    return false;
+                } else {
+                    this.emailError = "";
+                    return true;
+
+                }
+            },
+            registerSuccess() {
+                var event = window.event || arguments.callee.caller.arguments[0];
+                if (!(this.checkUsername() && this.checkPassword() && this.checkPasswordConfirm() && this.checkEmail())) {
+                    event.preventDefault();
+                }
+            }
+
+        }
+    })
+</script>
+</body>
+</html>
